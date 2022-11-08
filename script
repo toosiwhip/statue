@@ -1,0 +1,54 @@
+setclipboard(https://workink.me/2mM/Key)
+local Rayfield = loadstring(game:HttpGet('https://raw.githubusercontent.com/shlexware/Rayfield/main/source'))()
+local Window = Rayfield:CreateWindow({
+	Name = "Statue Hub",
+	LoadingTitle = "if u want ur script taken down then contact statue#0001",
+	LoadingSubtitle = "Made By Statue Scripts (statue#0001)",
+	ConfigurationSaving = {
+		Enabled = false,
+		FolderName = nil, -- Create a custom folder for your hub/game
+		FileName = "Big Hub"
+	},
+        Discord = {
+        	Enabled = true,
+        	Invite = "S7GV6vnv77", -- The Discord invite code, do not include discord.gg/
+        	RememberJoins = true -- Set this to false to make them join the discord every time they load it up
+        },
+	KeySystem = true, -- Set this to true to use our key system
+	KeySettings = {
+		Title = "Statue Scripts",
+		Subtitle = "Script Hub Key System",
+		Note = "Get Key At (placeholder)",
+		FileName = "Statue Script Hub Key",
+		SaveKey = false,
+		GrabKeyFromSite = true, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
+		Key = "https://pastebin.com/raw/gpnpK93H"
+	}
+})
+local gametable = {
+	--[2753915549] = [["loadstring(game:HttpGet("https://raw.githubusercontent.com/ThunderZ-05/HUB/main/Script"))()"]]
+}
+local gamename  = game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name
+local Tab = Window:CreateTab("Scripts", 4483362458)
+local Button = Tab:CreateButton({
+	Name = "Copy Script For: "..gamename,
+	Callback = function()
+		if not table.find(gametable, game.PlaceId) then
+			Rayfield:Notify({
+				Title = "No Script Found For This Game",
+				Content = "If This Was A Mistake Then Contact Us On The Discord",
+				Duration = 6.5,
+				Image = 4483362458,
+				
+			})
+		else
+		
+		for id, script in pairs(gametable) do
+		if id == game.PlaceId  then 
+	setclipboard(script)
+		end
+
+		end
+	end
+	end,
+})
